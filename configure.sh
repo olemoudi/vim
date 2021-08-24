@@ -8,5 +8,6 @@ mkdir -p ~/.fonts
 cp fonts/powerline/DejaVuSansMono/* ~/.fonts/
 fc-cache -vf ~/.fonts/
 cd ~/.vim
-git submodule foreach git pull origin master
+mkdir -p undodir
+mkdir -p swapfiles
 
