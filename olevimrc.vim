@@ -44,8 +44,8 @@ filetype on
 filetype plugin on
 filetype indent on
 set undofile " Maintain history of undos between sessions
-set undodir=~/.vim/undodir
-set directory=~/.vim/swapfiles
+set undodir=$HOME/vimfiles/undodir
+set directory=$HOME/vimfiles/swapfiles
  
 " Highlight search terms...
 set hlsearch
@@ -109,13 +109,12 @@ set incsearch               " Incrementally search while typing a /regex
 if has("gui_running")
     set lines=50 columns=130
     " windows format
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
-    "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12
     "Try patched powerline font
     "https://github.com/powerline/fonts
     colorscheme desert
 else
-    colorscheme desert
+    colorscheme delek
 endif
 
 """"
@@ -142,9 +141,9 @@ map <leader>p "+gP
 nnoremap <leader>q :q<CR>
 
 " ,v brings up my .vimrc
-map <leader>v :sp ~/.vimrc<CR><C-W>_
+map <leader>v :sp $VIMRUNTIME/olevimrc.vim<CR><C-W>_
 " ,V reloads it -- making all changes active (have to save first)
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source $VIMRUNTIME/olevimrc.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 """"
 
@@ -259,7 +258,7 @@ nmap <leader>s :SyntasticCheck<CR>
 
 """ vim-airline
 let g:airline_powerline_fonts = 1
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline,\ 11
+set guifont=DejaVu_Sans_Mono_for_Powerline:h12
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
